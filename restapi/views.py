@@ -87,10 +87,10 @@ class ReceiveStock(APIView):
         # default risk preference
         risk_a = 5.5
         # multi-thread
-        processer = 4
+        processer = 1
         user_port = port_fin.Portfolio(stocks, start, end, risk_a, processer, self.request.user.pk)
         user_port.get_data()
-        result = user_port.plo(1, 4000)
+        result = user_port.plo(1, 3000)
         print(result)
         print(count)
         request.data['user'] = self.request.user.pk
